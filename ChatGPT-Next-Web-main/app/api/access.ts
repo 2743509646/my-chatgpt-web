@@ -7,8 +7,12 @@ export function getAccessCodes(): Set<string> {
     const codes = (code?.split(",") ?? [])
       .filter((v) => !!v)
       .map((v) => md5.hash(v.trim()));
+          console.log("这是一个访问码",codes)
+
     return new Set(codes);
   } catch (e) {
+        console.log("这不是一个访问码")
+
     return new Set();
   }
 }
